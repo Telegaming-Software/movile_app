@@ -11,9 +11,9 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 185, 206, 223),
+      backgroundColor: const Color.fromRGBO(210, 209, 227, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 14, 42, 65),
+        backgroundColor: const Color.fromRGBO(20, 31, 106, 1),
       ),
       body: ListView(
         children: [
@@ -25,15 +25,26 @@ class _LoginState extends State<Login> {
                 width: 200,
               ),
               const SizedBox(height: 15),
+              const Text('Login',
+                  style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(174, 14, 42, 65))),
+              const SizedBox(height: 15),
               _userTextField(),
               const SizedBox(height: 15),
               _passwordTextField(),
               const SizedBox(height: 15),
               _loginButton(),
               const SizedBox(height: 15),
-              const Text('Forgot your password?',
-                  style: TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 14, 42, 65))),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, 'restaurarPassword');
+                },
+                child: const Text('Forgot your password?',
+                    style: TextStyle(
+                        fontSize: 15, color: Color.fromARGB(255, 14, 42, 65))),
+              ),
               const SizedBox(height: 25),
               Container(
                 padding:
@@ -78,9 +89,14 @@ class _LoginState extends State<Login> {
                 ),
               ),
               const SizedBox(height: 15),
-              const Text('Registrate',
-                  style: TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 14, 42, 65))),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, 'registerPage');
+                },
+                child: const Text('Registrate',
+                    style: TextStyle(
+                        fontSize: 15, color: Color.fromARGB(255, 14, 42, 65))),
+              ),
               const SizedBox(height: 25),
             ],
           ),
@@ -94,7 +110,7 @@ class _LoginState extends State<Login> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return Container(
           width: 350,
-          height: 60,
+          height: 50,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
@@ -105,8 +121,6 @@ class _LoginState extends State<Login> {
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(
               hintText: 'Email',
-              labelText: 'Email',
-              labelStyle: TextStyle(color: Colors.black),
               border: InputBorder.none,
             ),
             onChanged: (value) {},
@@ -121,7 +135,7 @@ class _LoginState extends State<Login> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return Container(
           width: 350,
-          height: 60,
+          height: 50,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
@@ -134,8 +148,6 @@ class _LoginState extends State<Login> {
             decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: 'Password',
-              labelText: 'Password',
-              labelStyle: TextStyle(color: Colors.black),
             ),
             onChanged: (value) {},
           ),
@@ -150,7 +162,7 @@ class _LoginState extends State<Login> {
         return ElevatedButton(
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
-                    const Color.fromARGB(255, 14, 42, 65)),
+                    const Color.fromRGBO(20, 31, 106, 1)),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
