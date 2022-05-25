@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tg_software_app/pages/login.dart';
+import 'package:tg_software_app/router/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'TGSoftware',
+      initialRoute: AppRoutes.initialRouter,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      routes: AppRoutes.routes,
     );
   }
 }
