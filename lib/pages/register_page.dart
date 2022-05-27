@@ -8,6 +8,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  bool? isAceptedFirstCondition = false;
+  bool? isAceptedSecondCondition = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +38,108 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(height: 20),
             _passwordTextField(),
             const SizedBox(
-              height: 15,
-            )
+              height: 25,
+            ),
+            _firstCondition(),
+            const SizedBox(height: 5),
+            _secondCondition(),
+            const SizedBox(height: 20),
+            _sendButton(),
+            const SizedBox(height: 15),
+            _alreadyAccount(),
+            const SizedBox(height: 10),
           ],
         )
       ]),
+    );
+  }
+
+  Row _alreadyAccount() {
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      const Text('¿Ya tienes una cuenta?', style: TextStyle(fontSize: 15)),
+      InkWell(
+        onTap: () {
+          Navigator.pushNamedAndRemoveUntil(
+              context, 'login', ((route) => false));
+        },
+        child: const Text(' Inicia sesión',
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 14, 42, 65))),
+      ),
+    ]);
+  }
+
+  ElevatedButton _sendButton() {
+    return ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+                const Color.fromRGBO(20, 31, 106, 1)),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ))),
+        onPressed: null,
+        child: Container(
+          height: 50,
+          padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 15),
+          child: const Text('Crear cuenta',
+              style: TextStyle(fontSize: 16, color: Colors.white)),
+        ));
+  }
+
+  Container _firstCondition() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Checkbox(
+              value: isAceptedFirstCondition,
+              onChanged: (valueIn) {
+                setState(() {
+                  isAceptedFirstCondition = valueIn;
+                });
+              }),
+          const Flexible(
+            child: Text(
+              'Acepto los terminos, Condiciones y las Políticas de privacidad, soy mayor de 13 años.',
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xAC0E2A41)),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container _secondCondition() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Checkbox(
+              value: isAceptedSecondCondition,
+              onChanged: (valueIn) {
+                setState(() {
+                  isAceptedSecondCondition = valueIn;
+                });
+              }),
+          const Flexible(
+            child: Text(
+              'Me gustaría recibir promociones y noticias de las actualizacion en mi correo.',
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xAC0E2A41)),
+            ),
+          )
+        ],
+      ),
     );
   }
 
