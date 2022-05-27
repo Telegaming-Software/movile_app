@@ -80,7 +80,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ))),
-        onPressed: null,
+        onPressed: () {
+          Navigator.pushNamedAndRemoveUntil(
+              context, 'homePage', ((route) => false));
+        },
         child: Container(
           height: 50,
           padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 15),
