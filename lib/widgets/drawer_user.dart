@@ -17,17 +17,47 @@ class _DrawerUserState extends State<DrawerUser> {
         child: ListView(
           children: [
             _avatar(),
-            _drawerItem(icon: Icons.home, text: 'Inicio'),
+            _drawerItem(
+                icon: Icons.home,
+                text: 'Inicio',
+                onpressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, 'homePage', ((route) => false));
+                }),
             const SizedBox(height: 10),
-            _drawerItem(icon: Icons.person, text: 'Perfil'),
+            _drawerItem(icon: Icons.person, text: 'Perfil', onpressed: () {}),
             const SizedBox(height: 10),
-            _drawerItem(icon: Icons.book, text: 'Materiales'),
+            _drawerItem(icon: Icons.book, text: 'Materiales', onpressed: () {}),
             const SizedBox(height: 10),
-            _drawerItem(icon: Icons.attach_money, text: 'Recompenzas'),
+            _drawerItem(
+                icon: Icons.attach_money,
+                text: 'Recompenzas',
+                onpressed: () {}),
             const SizedBox(height: 10),
-            _drawerItem(icon: Icons.stacked_bar_chart, text: 'Progreso'),
+            _drawerItem(
+                icon: Icons.stacked_bar_chart,
+                text: 'Progreso',
+                onpressed: () {}),
             const SizedBox(height: 10),
-            _drawerItem(icon: Icons.add_reaction, text: 'Invitar Amigos'),
+            _drawerItem(
+                icon: Icons.add_reaction,
+                text: 'Invitar Amigos',
+                onpressed: () {}),
+            const SizedBox(height: 10),
+            _drawerItem(
+                icon: Icons.local_activity,
+                text: 'Activar Cuenta Coach',
+                onpressed: () {}),
+            const SizedBox(height: 10),
+            _drawerItem(
+                icon: Icons.dnd_forwardslash,
+                text: 'Reportar',
+                onpressed: () {}),
+            const SizedBox(height: 10),
+            _drawerItem(
+                icon: Icons.exit_to_app_outlined,
+                text: 'Cerrar Sesión',
+                onpressed: () {}),
           ],
         ),
       ),
@@ -46,8 +76,10 @@ DrawerHeader _avatar() {
 ListTile _drawerItem({
   required String text,
   required IconData icon,
+  required Function()? onpressed,
 }) {
   return ListTile(
+    onTap: onpressed,
     hoverColor: Colors.white70,
     leading: Icon(icon, color: Colors.white),
     title:
