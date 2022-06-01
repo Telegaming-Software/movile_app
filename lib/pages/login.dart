@@ -65,23 +65,23 @@ class _LoginState extends State<Login> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
                           Icon(
-                            size: 40,
                             Icons.facebook,
+                            size: 40,
                             color: Color.fromARGB(255, 0, 0, 0),
                           ),
                           Icon(
-                            size: 40,
                             Icons.email,
+                            size: 40,
                             color: Color.fromARGB(255, 0, 0, 0),
                           ),
                           Icon(
-                            size: 40,
                             Icons.camera,
+                            size: 40,
                             color: Color.fromARGB(255, 0, 0, 0),
                           ),
                           Icon(
-                            size: 40,
                             Icons.chat_bubble_outline_rounded,
+                            size: 40,
                             color: Color.fromARGB(255, 0, 0, 0),
                           ),
                         ])
