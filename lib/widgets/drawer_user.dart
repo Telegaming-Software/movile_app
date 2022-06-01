@@ -25,35 +25,19 @@ class _DrawerUserState extends State<DrawerUser> {
                       context, 'homePage', ((route) => false));
                 }),
             const SizedBox(height: 10),
-            _drawerItem(icon: Icons.person, text: 'Perfil', onpressed: () {}),
+            _drawerItem(
+                icon: Icons.person,
+                text: 'Perfil',
+                onpressed: () {
+                  Navigator.pushNamed(context, 'profilePage');
+                }),
             const SizedBox(height: 10),
             _drawerItem(icon: Icons.book, text: 'Materiales', onpressed: () {}),
             const SizedBox(height: 10),
             _drawerItem(
-                icon: Icons.attach_money,
-                text: 'Recompenzas',
+                icon: Icons.social_distance_rounded,
+                text: 'Coaching',
                 onpressed: () {}),
-            const SizedBox(height: 10),
-            _drawerItem(
-                icon: Icons.stacked_bar_chart,
-                text: 'Progreso',
-                onpressed: () {}),
-            const SizedBox(height: 10),
-            _drawerItem(
-                icon: Icons.add_reaction,
-                text: 'Invitar Amigos',
-                onpressed: () {}),
-            const SizedBox(height: 10),
-            _drawerItem(
-                icon: Icons.local_activity,
-                text: 'Activar Cuenta Coach',
-                onpressed: () {}),
-            const SizedBox(height: 10),
-            _drawerItem(
-                icon: Icons.dnd_forwardslash,
-                text: 'Reportar',
-                onpressed: () {}),
-            const SizedBox(height: 10),
             _drawerItem(
                 icon: Icons.exit_to_app_outlined,
                 text: 'Cerrar Sesión',

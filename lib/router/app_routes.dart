@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tg_software_app/pages/login.dart';
 import 'package:tg_software_app/pages/restaurar_password_page.dart';
 import '../pages/home_page.dart';
+import '../pages/profile_page.dart';
 import '../pages/register_page.dart';
 
 class AppRoutes {
@@ -14,6 +15,7 @@ class AppRoutes {
         const RestaurarPasswordPage(),
     'registerPage': (BuildContext context) => const RegisterPage(),
     'homePage': (BuildContext context) => const HomePage(),
+    'profilePage': (BuildContext context) => const ProfilePage(),
   };
   static onGeneratedRoute(RouteSettings settings) {
     return MaterialPageRoute(builder: (context) => const Login());
